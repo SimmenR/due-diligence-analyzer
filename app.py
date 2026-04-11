@@ -12,6 +12,12 @@ model_choice = st.sidebar.selectbox("Select AI Engine", ["Google Gemini (Free)",
 
 # Only enable the API key input if we aren't in Demo Mode
 needs_key = model_choice != "Demo Mode (Offline)"
+if needs_key:
+    st.sidebar.markdown(
+        "You can get a **free** Gemini API key from "
+        "[Google AI Studio](https://aistudio.google.com/apikey): sign in with a Google account, "
+        "open **Get API key**, and create a key for this app."
+    )
 api_key = st.sidebar.text_input("Enter API Key", type="password", disabled=not needs_key)
 
 st.write("Upload a target company's financial report or pitch deck (PDF) to generate a Due Diligence summary.")
